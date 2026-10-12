@@ -50,7 +50,7 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 //@Disabled
 public class BioBuzzStarterbotTeleopMecanum extends OpMode {
 
-    // Declare OpMode members.
+    * Declare OpMode members.
     private DcMotor leftFrontDrive = null;
     private DcMotor leftBackDrive = null;
     private DcMotor rightFrontDrive = null;
