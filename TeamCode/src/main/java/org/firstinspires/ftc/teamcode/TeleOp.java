@@ -28,9 +28,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
+import com.qualcomm.robotcore.hardware.Servo;
 
 
- /**
+/**
  * This file includes a teleop (driver-controlled) file for the goBILDA® StarterBot with Mecanum
  * Wheels for the 2026-2027 FIRST® Tech Challenge. On top of a mecanum wheel drivetrain, it uses
  * one motor driving an intake roller, two servos which pull elements out of corners, and a high-speed
@@ -111,12 +112,11 @@ public class TeleOp extends OpMode {
         rightFrontDrive = hardwareMap.get(DcMotor.class, "right_front_drive");
         leftBackDrive = hardwareMap.get(DcMotor.class, "left_back_drive");
         rightBackDrive = hardwareMap.get(DcMotor.class, "right_back_drive");
-        intake = hardwareMap.get(DcMotor.class, "intake");
-        launcher = hardwareMap.get(DcMotorEx.class, "launcher");
-        windmillServo = hardwareMap.get(CRServo.class, "windmillServo");
-        leftIntakeServo = hardwareMap.get(CRServo.class, "left_intake_servo");
-        rightIntakeServo = hardwareMap.get(CRServo.class, "right_intake_servo");
-
+        // intake = hardwareMap.get(DcMotor.class, "intake");
+        // launcher = hardwareMap.get(DcMotorEx.class, "launcher");
+        // windmillServo = hardwareMap.get(CRServo.class, "windmillServo");
+        // leftIntakeServo = hardwareMap.get(CRServo.class, "left_intake_servo");
+        //rightIntakeServo = hardwareMap.get(CRServo.class, "right_intake_servo");
 
          /*
          * To drive forward, most robots need the motor on one side to be reversed,
