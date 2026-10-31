@@ -56,11 +56,11 @@ public class TeleOp extends OpMode {
     private DcMotor leftBackDrive = null;
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
-    private DcMotorEx launcher = null;
-    private DcMotor intake = null;
-    private CRServo leftIntakeServo = null;
-    private CRServo rightIntakeServo = null;
-    private CRServo windmillServo = null;
+   // private DcMotorEx launcher = null;
+    // private DcMotor intake = null;
+    // private CRServo leftIntakeServo = null;
+    //private CRServo rightIntakeServo = null;
+    //private CRServo windmillServo = null;
 
 
 
@@ -142,7 +142,7 @@ public class TeleOp extends OpMode {
         rightFrontDrive.setZeroPowerBehavior(BRAKE);
         leftBackDrive.setZeroPowerBehavior(BRAKE);
         rightBackDrive.setZeroPowerBehavior(BRAKE);
-        intake.setZeroPowerBehavior(BRAKE);
+        // intake.setZeroPowerBehavior(BRAKE);
 
 
          /*
@@ -154,18 +154,18 @@ public class TeleOp extends OpMode {
           */
 
 
-        launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        // launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, new PIDFCoefficients(40, 0, 0, 12.5));
+        // launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, new PIDFCoefficients(40, 0, 0, 12.5));
 
 
          /*
          * set Feeders to an initial value to initialize the servo controller
           */
 
-        leftIntakeServo.setPower(0);
-        rightIntakeServo.setPower(0);
-        windmillServo.setPower(0);
+        // leftIntakeServo.setPower(0);
+        // rightIntakeServo.setPower(0);
+        // windmillServo.setPower(0);
 
 
          /*
@@ -173,8 +173,8 @@ public class TeleOp extends OpMode {
          * servos work to pull elements into the intake.
           */
 
-        rightIntakeServo.setDirection(DcMotorSimple.Direction.REVERSE);
-        windmillServo.setDirection(DcMotorSimple.Direction.REVERSE);
+        // rightIntakeServo.setDirection(DcMotorSimple.Direction.REVERSE);
+        //  windmillServo.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
          /*
@@ -237,7 +237,7 @@ public class TeleOp extends OpMode {
          * create erratic behavior.
           */
 
-        intakePower = gamepad1.right_trigger - gamepad1.left_trigger;
+        // intakePower = gamepad1.right_trigger - gamepad1.left_trigger;
 
         launch();
 
@@ -251,9 +251,9 @@ public class TeleOp extends OpMode {
           */
 
 
-        intake.setPower(intakePower);
-        leftIntakeServo.setPower(intakePower);
-        rightIntakeServo.setPower(intakePower);
+        // intake.setPower(intakePower);
+        // leftIntakeServo.setPower(intakePower);
+        // rightIntakeServo.setPower(intakePower);
 
 
          /*
@@ -312,10 +312,10 @@ public class TeleOp extends OpMode {
          * Otherwise, we start spinning the launcher down.
           */
 
-        if (gamepad1.right_bumper) {
-            launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
-        } else {
-            launcher.setVelocity(0);
+        // if (gamepad1.right_bumper) {
+            // launcher.setVelocity(LAUNCHER_TARGET_VELOCITY);
+        // } else {
+            // launcher.setVelocity(0);
         }
 
 
@@ -327,11 +327,9 @@ public class TeleOp extends OpMode {
          * inside the hopper.
           */
 
-        if (gamepad1.right_bumper && launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
-            windmillServo.setPower(1);
-            intakePower += 0.5;
-        } else {
-            windmillServo.setPower(0);
-        }
-    }
+        // if (gamepad1.right_bumper && launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
+           // windmillServo.setPower(1);
+           // intakePower += 0.5;
+        // } else {
+            // windmillServo.setPower(0);
 }
