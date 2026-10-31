@@ -1,21 +1,14 @@
- /**
+/*
  *   MIT License
  *   Copyright (c) [2026] [Base 10 Assets, LLC]
- *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
  *   in the Software without restriction, including without limitation the rights
  *   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *   copies of the Software, and to permit persons to whom the Software is
  *   furnished to do so, subject to the following conditions:
-  */
-
- /**
  *   The above copyright notice and this permission notice shall be included in all
  *   copies or substantial portions of the Software.
-  */
-
- /**
  *   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,8 +16,7 @@
  *   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
-  */
-
+ */
 
 package org.firstinspires.ftc.teamcode;
 
@@ -109,7 +101,7 @@ public class TeleOp extends OpMode {
     public void init() {
 
 
-         /**
+         /*
          * Initialize the hardware variables. Note that the strings used here as parameters
          * to 'get' must correspond to the names assigned during the robot configuration
          * step.
@@ -126,7 +118,7 @@ public class TeleOp extends OpMode {
         rightIntakeServo = hardwareMap.get(CRServo.class, "right_intake_servo");
 
 
-         /**
+         /*
          * To drive forward, most robots need the motor on one side to be reversed,
          * because the axles point in opposite directions. Pushing the left stick forward
          * MUST make robot go forward. So adjust these two lines based on your first test drive.
@@ -140,7 +132,7 @@ public class TeleOp extends OpMode {
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
 
-         /**
+         /*
          * Setting zeroPowerBehavior to BRAKE enables a "brake mode". This causes the motor to
          * slow down much faster when it is coasting. This creates a much more controllable
          * drivetrain. As the robot stops much quicker.
@@ -153,7 +145,7 @@ public class TeleOp extends OpMode {
         intake.setZeroPowerBehavior(BRAKE);
 
 
-         /**
+         /*
          * Here we set our launcher to the RUN_USING_ENCODER runmode.
          * If you notice that you have no control over the velocity of the motor, it just jumps
          * right to a number much higher than your set point, make sure that your encoders are plugged
@@ -167,7 +159,7 @@ public class TeleOp extends OpMode {
         launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, new PIDFCoefficients(40, 0, 0, 12.5));
 
 
-         /**
+         /*
          * set Feeders to an initial value to initialize the servo controller
           */
 
@@ -176,7 +168,7 @@ public class TeleOp extends OpMode {
         windmillServo.setPower(0);
 
 
-         /**
+         /*
          * Much like our drivetrain motors, we set the right intake servo to reverse so that both
          * servos work to pull elements into the intake.
           */
@@ -185,7 +177,7 @@ public class TeleOp extends OpMode {
         windmillServo.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
-         /**
+         /*
          * Tell the driver that initialization is complete.
           */
 
@@ -218,7 +210,7 @@ public class TeleOp extends OpMode {
     @Override
     public void loop() {
 
-         /**
+         /*
          * Here we call a function called mecanumDrive. The mecanumDrive function takes the input from
          * the joysticks, and applies power to the drive motors to move the robot as requested
          * by the driver. Moving the left joystick forwards/back moves all motors forwards/back,
@@ -232,7 +224,7 @@ public class TeleOp extends OpMode {
         mecanumDrive(-gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
 
 
-         /**
+         /*
          * Set the intake power variable to equal the right trigger, minus the left trigger.
          * Each trigger outputs a signal from 0-1, with 0 as fully released, and 1 fully depressed.
          * This gives us proportional control of the intake speed. The speed increases as we pull
@@ -250,7 +242,7 @@ public class TeleOp extends OpMode {
         launch();
 
 
-         /**
+         /*
          * Here we set our intake motor and servos to their intake power. The order of operations
          * here is important though. The gamepad triggers define the starting point for the intake
          * power variable in each loop of our code, but inside our launch function we also sometimes
@@ -264,7 +256,7 @@ public class TeleOp extends OpMode {
         rightIntakeServo.setPower(intakePower);
 
 
-         /**
+         /*
          * Show motor powers on the Driver Station via telemetry.
           */
 
@@ -299,7 +291,7 @@ public class TeleOp extends OpMode {
         }
 
 
-         /**
+         /*
          * Send calculated power to wheels
           */
 
@@ -311,7 +303,7 @@ public class TeleOp extends OpMode {
 
     void launch() {
 
-         /**
+         /*
          * Calling gamepad1.right_bumper returns a boolean which will be true if the bumper is
          * held down, and false if it is not. Notably, this will continue to be true for every
          * cycle of our code that the driver holds down that bumper.
@@ -327,7 +319,7 @@ public class TeleOp extends OpMode {
         }
 
 
-         /**
+         /*
          * Here we ask if the driver is currently pressing the right bumper, AND the launcher is
          * spinning fast enough to make a successful shot. If it is, then we will turn on the
          * windmill servo to start feeding the elements into the launcher motor. We also

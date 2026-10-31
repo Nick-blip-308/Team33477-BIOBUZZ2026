@@ -1,23 +1,17 @@
-
- /**
+/*
  * Copyright (c) 2026 Base 10 Assets, LLC
  * All rights reserved.
- *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted (subject to the limitations in the disclaimer below) provided that
  * the following conditions are met:
- *
  * Redistributions of source code must retain the above copyright notice, this list
  * of conditions and the following disclaimer.
- *
  * Redistributions in binary form must reproduce the above copyright notice, this
  * list of conditions and the following disclaimer in the documentation and/or
  * other materials provided with the distribution.
- *
  * Neither the name of NAME nor the names of its contributors may be used to
  * endorse or promote products derived from this software without specific prior
  * written permission.
- *
  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS
  * LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
@@ -29,8 +23,7 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  */
-
+ */
 
 package org.firstinspires.ftc.teamcode;
 
@@ -162,7 +155,7 @@ public class BasicAuto extends OpMode
     @Override
     public void init() {
 
-         /**
+         /*
          * Here we set the first step of our autonomous state machine by setting
          * autonomousState = AutonomousState.LAUNCH. Later in our code, we will progress through
          * the state machine by moving to other enum members.
@@ -173,7 +166,7 @@ public class BasicAuto extends OpMode
 
 
 
-         /**
+         /*
          * Initialize the hardware variables. Note that the strings used here as parameters
          * to 'get' must correspond to the names assigned during the robot configuration
          * step (using the FTC Robot Controller app on the driver's station).
@@ -188,7 +181,7 @@ public class BasicAuto extends OpMode
         rightIntakeServo = hardwareMap.get(CRServo.class, "right_intake_servo");
 
 
-         /**
+         /*
          * To drive forward, most robots need the motor on one side to be reversed,
          * because the axles point in opposite directions. Pushing the left stick forward
          * MUST make robot go forward. So adjust these two lines based on your first test drive.
@@ -200,7 +193,7 @@ public class BasicAuto extends OpMode
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
-         /**
+         /*
          * Here we reset the encoders on our drive motors before we start moving.
           */
 
@@ -208,7 +201,7 @@ public class BasicAuto extends OpMode
         rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
-         /**
+         /*
          * Setting zeroPowerBehavior to BRAKE enables a "brake mode." This causes the motor to
          * slow down much faster when it is coasting. This creates a much more controllable
          * drivetrain, as the robot stops much quicker.
@@ -219,7 +212,7 @@ public class BasicAuto extends OpMode
         intake.setZeroPowerBehavior(BRAKE);
 
 
-         /**
+         /*
          * Here we set our launcher to the RUN_USING_ENCODER runmode.
          * If you notice that you have no control over the velocity of the motor, it just jumps
          * right to a number much higher than your set point, make sure that your encoders are plugged
@@ -232,7 +225,7 @@ public class BasicAuto extends OpMode
         launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, new PIDFCoefficients(40, 0, 0, 12.5));
 
 
-         /**
+         /*
          * set Feeders to an initial value to initialize the servo controller
           */
 
@@ -241,7 +234,7 @@ public class BasicAuto extends OpMode
         windmillServo.setPower(0);
 
 
-         /**
+         /*
          * Much like our drivetrain motors, we set the right intake servo to reverse so that both
          * servos work to pull elements into the intake.
           */
@@ -280,7 +273,7 @@ public class BasicAuto extends OpMode
     @Override
     public void loop() {
 
-         /**
+         /*
          * TECH TIP: Switch Statements
          * switch statements are an excellent way to take advantage of an enum. They work very
          * similarly to a series of "if" statements, but allow for cleaner and more readable code.
@@ -312,7 +305,7 @@ public class BasicAuto extends OpMode
         intake.setPower(intakePower);
 
 
-         /**
+         /*
          * Here is our telemetry that keeps us informed of what is going on in the robot. Since this
          * part of the code exists outside of our switch statement, it will run once every loop.
          * No matter what state our robot is in. This is the huge advantage of using state machines.
@@ -367,7 +360,7 @@ public class BasicAuto extends OpMode
     boolean drive(double speed, double distance, DistanceUnit distanceUnit, double holdSeconds) {
         final double TOLERANCE_MM = 10;
 
-         /**
+         /*
          * In this function we use a DistanceUnits. This is a class that the FTC SDK implements
          * which allows us to accept different input units depending on the user's preference.
          * To use these, put both a double and a DistanceUnit as parameters in a function and then
@@ -389,7 +382,7 @@ public class BasicAuto extends OpMode
         rightDrive.setPower(speed);
 
 
-         /**
+         /*
          * Here we check if we are within tolerance of our target position or not. We calculate the
          * absolute error (distance from our setpoint regardless of if it is positive or negative)
          * and compare that to our tolerance. If we have not reached our target yet, then we reset
@@ -418,7 +411,7 @@ public class BasicAuto extends OpMode
         final double TOLERANCE_MM = 10;
 
 
-         /**
+         /*
          * Here we establish the number of mm that our drive wheels need to cover to create the
          * requested angle. We use radians here because it makes the math much easier.
          * Our robot will have rotated one radian when the wheels of the robot have driven
@@ -431,7 +424,7 @@ public class BasicAuto extends OpMode
         double targetMm = angleUnit.toRadians(angle)*(TRACK_WIDTH_MM/2);
 
 
-         /**
+         /*
          * We need to set the left motor to the inverse of the target so that we rotate instead
          * of driving straight.
           */
