@@ -59,7 +59,11 @@ lint/tmp/
 lint/reports/
 
 *.lock
+.gradle/9.1.0/checksums/checksums.lock
+.gradle/9.1.0/executionHistory/executionHistory.lock
 .gradle/9.1.0/fileHashes/fileHashes.bin
+.gradle/9.1.0/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
 build/reports/problems/problems-report.html
 
 # Google Services / Firebase (uncomment if using Firebase/Google APIs and keeping private)
