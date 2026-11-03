@@ -189,7 +189,7 @@ public class BasicAuto extends OpMode
          * Reduction or 90 Deg drives may require direction flips
           */
 
-        leftDrive.setDirection(DcMotorx.Direction.FORWARD);
+        leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
