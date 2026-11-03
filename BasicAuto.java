@@ -175,7 +175,7 @@ public class StarterBotAuto extends OpMode
          * Note: The settings here assume direct drive on left and right wheels. Gear
          * Reduction or 90 Deg drives may require direction flips
 
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftDrive.setDirection(DcMotorx.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
