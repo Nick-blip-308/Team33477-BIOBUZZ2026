@@ -26,6 +26,8 @@ public class DriveForwardOnlyAuto extends LinearOpMode {
         // Initialize the drive system variables.
         leftFrontDrive = hardwareMap.get(DcMotor.class, "back_left_drive");
         rightFrontDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
+        // leftBackDrive = hardwareMap.get(DcMotor.class, "left_back_drive");
+        // rightBackDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
 
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
