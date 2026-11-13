@@ -239,7 +239,7 @@ public class TeleOp extends OpMode {
 
         intakePower = gamepad1.right_trigger - gamepad1.left_trigger;
 
-        launch();
+        //launch();
 
 
          /*
