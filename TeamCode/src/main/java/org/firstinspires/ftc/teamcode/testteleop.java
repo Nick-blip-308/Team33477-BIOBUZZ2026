@@ -310,14 +310,15 @@ public class testteleop extends OpMode {
 
         if (gamepad1.left_trigger > 0.5) ;
         {
-            intake.setPower(1);
-
+            windmillServo.setPower(1);
 
         }
         if (gamepad1.right_trigger > 0.5) ;
         {
-            windmillServo.setPower(1);
+
+            intake.setPower(1);
         }
+
 
 
         // if (gamepad1.right_bumper && launcher.getVelocity() > LAUNCHER_MIN_VELOCITY) {
