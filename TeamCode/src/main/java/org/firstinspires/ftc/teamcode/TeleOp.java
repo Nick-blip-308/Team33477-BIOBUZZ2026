@@ -57,7 +57,7 @@ public class TeleOp extends OpMode {
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
    // private DcMotorEx launcher = null;
-     private DcMotor intake = null;
+   //private DcMotor intake = null;
      private CRServo leftIntakeServo = null;
      private CRServo rightIntakeServo = null;
     //private CRServo windmillServo = null;
@@ -112,7 +112,7 @@ public class TeleOp extends OpMode {
         rightFrontDrive = hardwareMap.get(DcMotor.class, "right_front_drive");
         leftBackDrive = hardwareMap.get(DcMotor.class, "left_back_drive");
         rightBackDrive = hardwareMap.get(DcMotor.class, "right_back_drive");
-        intake = hardwareMap.get(DcMotor.class, "intake");
+        //intake = hardwareMap.get(DcMotor.class, "intake");
         // launcher = hardwareMap.get(DcMotorEx.class, "launcher");
         // windmillServo = hardwareMap.get(CRServo.class, "windmillServo");
         leftIntakeServo = hardwareMap.get(CRServo.class, "left_intake_servo");
@@ -126,10 +126,10 @@ public class TeleOp extends OpMode {
          * Reduction or 90 Deg drives may require direction flips
           */
 
-        leftFrontDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
-        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
 
          /*
@@ -142,7 +142,7 @@ public class TeleOp extends OpMode {
         rightFrontDrive.setZeroPowerBehavior(BRAKE);
         leftBackDrive.setZeroPowerBehavior(BRAKE);
         rightBackDrive.setZeroPowerBehavior(BRAKE);
-        intake.setZeroPowerBehavior(BRAKE);
+        //intake.setZeroPowerBehavior(BRAKE);
 
 
          /*
@@ -251,7 +251,7 @@ public class TeleOp extends OpMode {
           */
 
 
-        intake.setPower(intakePower);
+        //intake.setPower(intakePower);
         leftIntakeServo.setPower(intakePower);
         rightIntakeServo.setPower(intakePower);
 
