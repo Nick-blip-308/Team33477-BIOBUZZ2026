@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "DriveForwardOnlyAuto", group = "DriveForward")
 
-public class lowershootingauto extends LinearOpMode {
+public class Redshootingauto extends LinearOpMode {
 
     /* Declare OpMode members. */
 
@@ -84,16 +84,90 @@ public class lowershootingauto extends LinearOpMode {
         intake.setPower(1.0);
         sleep(1000);
 
-        launcher.setPower(0);
+        // STEP 1: Go Forward
+        leftFrontDrive.setPower(1.0);
+        rightFrontDrive.setPower(1.0);
+        leftBackDrive.setPower(1.0);
+        rightBackDrive.setPower(1.0);
+        sleep(1500);
+
+// STEP 2: Turn Left a little (left wheels reverse, right wheels forward)
+        leftFrontDrive.setPower(-0.4);
+        rightFrontDrive.setPower(0.4);
+        leftBackDrive.setPower(-0.4);
+        rightBackDrive.setPower(0.4);
+        sleep(400); // Short time for a slight turn
+
+// STEP 3: Go Forward & Run Intake
         leftFrontDrive.setPower(0.4);
         rightFrontDrive.setPower(0.4);
-        sleep(2600);
+        leftBackDrive.setPower(0.4);
+        rightBackDrive.setPower(0.4);
+        intake.setPower(1.0); // Start intaking
+        leftIntakeServo.setPower(1.0);
+        rightIntakeServo.setPower(1.0);
+        sleep(1500);
+
+// Stop driving, keep intaking briefly to secure the game piece
+        leftFrontDrive.setPower(0.0);
+        rightFrontDrive.setPower(0.0);
+        leftBackDrive.setPower(0.0);
+        rightBackDrive.setPower(0.0);
+        sleep(500);
+        intake.setPower(0.0); // Stop intake
+        leftIntakeServo.setPower(0);
+        rightIntakeServo.setPower(0);
+
+// STEP 4: Turn Around (180 degrees)
+        leftFrontDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(0.5);
+        rightBackDrive.setPower(-0.5);
+        sleep(1200); // Adjust this time until it does a full 180
+
+// Stop driving before shooting
+        leftFrontDrive.setPower(0.0);
+        rightFrontDrive.setPower(0.0);
+        leftBackDrive.setPower(0.0);
+        rightBackDrive.setPower(0.0);
+
+// STEP 5: Shoot
+        launcher.setPower(1.0); // Spin up shooter
+        sleep(1000);                // Wait for shooter to reach full speed
+        intake.setPower(1.0);  // Feed game piece into shooter
+        sleep(1000);
+        launcher.setPower(0.0); // Stop shooter
+        intake.setPower(0.0);  // Stop feeder/intake
+
+// STEP 6: Strafe Left
+        leftFrontDrive.setPower(-0.4);
+        rightFrontDrive.setPower(0.4);
+        leftBackDrive.setPower(0.4);
+        rightBackDrive.setPower(-0.4);
+        sleep(1500);
+
+// STEP 7: Go Forward
+        leftFrontDrive.setPower(0.4);
+        rightFrontDrive.setPower(0.4);
+        leftBackDrive.setPower(0.4);
+        rightBackDrive.setPower(0.4);
+        sleep(1500);
+
+// STEP 8: Stop All Motors
+        leftFrontDrive.setPower(0.0);
+        rightFrontDrive.setPower(0.0);
+        leftBackDrive.setPower(0.0);
+        rightBackDrive.setPower(0.0);
+
+
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        leftBackDrive.setPower(0.0);
+        rightBackDrive.setPower(0.0);
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         sleep(1000);
