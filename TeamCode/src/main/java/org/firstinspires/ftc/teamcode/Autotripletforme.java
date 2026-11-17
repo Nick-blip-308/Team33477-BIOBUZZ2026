@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "DriveForwardOnlyAuto", group = "DriveForward")
 
-public class Redshootingauto extends LinearOpMode {
+public class Autotripletforme extends LinearOpMode {
 
     /* Declare OpMode members. */
 
@@ -103,6 +103,22 @@ public class Redshootingauto extends LinearOpMode {
         rightFrontDrive.setPower(0.4);
         leftBackDrive.setPower(0.4);
         rightBackDrive.setPower(0.4);
+
+        // Spin clockwise (right)
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(-0.5);
+
+// Adjust this number until your robot turns exactly 180 degrees
+        sleep(1200);
+
+// Stop all drive motors
+        leftFrontDrive.setPower(0.0);
+        leftBackDrive.setPower(0.0);
+        rightFrontDrive.setPower(0.0);
+        rightBackDrive.setPower(0.0);
+
         intake.setPower(1.0); // Start intaking
         leftIntakeServo.setPower(1.0);
         rightIntakeServo.setPower(1.0);
